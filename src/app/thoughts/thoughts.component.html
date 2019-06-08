@@ -1,0 +1,94 @@
+<h1>Thoughts on Software Development</h1>
+
+<p>This page describes my thoughts/opinions on various aspects of software development. During my young career as a 
+    software developer I worked in two university projects, two projects in the industry and currently in a project at a 
+    research institution for industry-relevant applied science. While my experience in any of the three areas theoretical research, 
+    applied science and development in the industry is not extensive, I think that having worked in all 3 areas gives me an 
+    interesting perspective. In any case, I hope that especially younger developers can benefit from the articles below. 
+    All of the articles on this page reflect my experiences and opinions and should in no way be seen as some kind of absolute 
+    truth about "the best way" (which I think doesn't exist anyway) to develop software.
+</p>
+
+<h2>Thoughts on great programming quotes</h2>
+<p>I love quotes. And since I love programming and computers, I love quotes about programming and computers even more. 
+    <a href="http://www.devtopics.com/101-great-computer-programming-quotes/">devtopics.com</a> features a great list of 
+    quotes. In this section I discuss some of my favorites and talk about how they relate to my experiences. The headlines of 
+    those sections paraphrase the quotes, the quotes themselves are shown after the headlines.
+</p>
+
+<article>
+    <h3>It's not about tech, it's about economics</h3>
+    <p>Quote: "It is not about bits, bytes and protocols, but profits, losses and margins." (Lou Gerstner)</p>
+    <p>This is something that I didn't understand until I started working at a company. In university projects it's about doing 
+        things the best way possible, but the best way possible is not necessarily an economical way. This is what makes me laugh 
+        when I read things like "nobody uses technology X anymore" in magazines about software development. When you read something 
+        like this you can be almost 100% certain that there are still people out there using X.
+    </p> 
+    
+    <p>One example: Nobody programs 
+        assembler anymore, right? I mean, we all know that assembler programming is incredibly error prone, it takes forever to 
+        get anything done in assembler and no one wants to learn assembler in a day and age where full stack development with 
+        JavaScript is an option. Right? Wrong. When I applied for jobs in the industry the first time around, I was offered a 
+        position where I would have been trained as an assembler programmer (I chose another option). Yes, you read that correctly. 
+        The company who would have hired me was specifically searching for new assembler programmers. So much for "no one programs 
+        in assembler anymore".
+    </p>
+    
+    <p> What phrases like this really mean is that in the exalted opinion of the experts no one 
+        <em>should</em> program in, for example, assembler anymore. Because there are better ways to build software than with 
+        Assembler, Fortran and COBOL. Nobody I know disagrees with this in principle. But this is where the quote reveals an  
+        important truth: what <em>should</em> be and what <em>is</em> are two different things. Programmers want to use the best 
+        technology for the job. I do too. But sometimes that desire can blind us to...well, not <strong>technically</strong> 
+        better alternatives, but 
+        more economical alternatives. I think this is where many clashes between management and technical people like programmers 
+        happen: Managers think in terms of economics, whereas programmers think in terms of tech. I'm not saying everything should 
+        be dictated by economics, but as programmers we should meet management half-way.
+    </p> 
+    <p> We shouldn't stop arguing for using the 
+        best tech for the job, but we should be open to the possibility that the best tech for the project itself is not 
+        necessarily the most economical alternative. One example: If a company wants to build a new web app, in a vacuum it makes 
+        sense to consider Node as a prime candidate for developing the backend. However, in the context of a company which has many 
+        experts in using Spring/Hibernate for developing backends but nobody who has any experience with Node Node would 
+        probably not be an economical choice. Sure, people who are expert in Spring/Hibernate could learn Node pretty quickly, but 
+        could they become nearly as good with Node in an acceptable amount of time as they are with Spring and Hibernate? 
+        Probably not. Programmers wanting to learn those technologies might recommend Node, but management might look at the 
+        expertise which is there and decide that it is economically not worth the time and the risk of using an unfamiliar 
+        technology to make the switch.
+    </p>
+    <p> I've also heard the argument that faster write time (code write time) nearly always is more 
+        important than faster runtime of the language, and I agree. But the thing is, just because you have to write less code does 
+        not mean that you need less time to write that code. Wait, what? That makes no sense. If I have to write less code then 
+        of course I would also need less time to write that code. In my opinion this is not true. I have no hard evidence for that, 
+        but I can speak from experience. I have been coding in Java for about 9 years now. I write Java fluently and rarely have 
+        to look anything up. Python is a language which is praised far and wide because it's so much less code with Python than 
+        with Java. Python is a great language, don't get me wrong. But if I have a task of moderate complexity I would need longer 
+        to code a solution in Python than in Java. Why? Because I have a lot of experience writing Java code. In Python I would 
+        probably have to look something up all the time, which would significantly slow me down. Does that get better the more I 
+        write Python? Of course, but I think I'd need weeks, if not months to become as fluent in Python as I am in Java. Not because 
+        of the core language, but because of the commonly used libraries. I know the parts of Java SE I need all the time by heart. 
+        To get equivalent knowledge in Python would take time.
+    </p>
+    <p> And anyone who knows the salaries of developers knows that 
+        developer time is expensive. So in a perfect world no one would program in COBOL anymore, but in our non-perfect world 
+        there are still large amounts of COBOL code out there. And in some cases it's just cheaper to maintain existing COBOL code 
+        than to write the same thing that the COBOL code does in Java from scratch. In a world where it's all about tech, COBOL 
+        code in commercial applications wouldn't exist anymore, there would be enough trained software developers to fulfill the 
+        demands of the market, no career changers from informatics-near fields would be needed and management would just sagely 
+        nod and sign of on all our suggestions regarding what tech should be used. 
+    </p>
+
+    <p>But in our non-perfect world tech presumed dead by tech news outlets has a surprisingly long life time. Why? Because 
+        better with respect to technical considerations doesn't always equal better with respect to technical <strong>and</strong> 
+        economical 
+        considerations. I know that this is something that can drive especially younger developers mad. I know that because I've been 
+        one of those younger developers who spend half their day shaking their head at how awful and antiquated everything was, 
+        dreaming of how much better everything would be if everything was done the way I knew how it should have been  done. It's a 
+        form of 
+        arrogance, really. It's easy to take that stance and focus only on the technical aspects when it's not your job to figure 
+        out how the company will best make a profit at the end of the day. But the annoying truth is that companys don't exist to 
+        produce software which is amazing under technical considerations. They exist to make money. And if it's a contest between 
+        the best way to make money and the best way to make software, the best way to make money wins. Sometimes, probably even often 
+        the best way to make software is also the best way to make money. But not always, and the sooner we as developers accept that 
+        and stop whining about the mean and incompetent management, the better. For all concerned.  
+    </p>
+</article>

@@ -1,0 +1,111 @@
+<h1>Web Development Diary</h1>
+
+<p>This page contains my collected experiences/oppinions concerning the subject of web development, both full stack and fronted 
+    development. I consider myself an advanced beginner because I've done mostly backend work in the past and I've been getting into 
+    frontend development for the last couple of months.
+</p>
+
+<article>
+    <h2>Lesson of May - My take on the benefits of the Spring Boot / Angular combination</h2>
+    <p>The lesson I learned from developing in the month of May is that I personally work better in full stack projects when 
+        backend and frontend are developed in separate projects. A little background: I'm currently developing a football manager 
+        application with a friend, where he comes up with the functionality and views and I do the technical parts. 
+        We're in the very early 
+        stages, but the development so far got me thinking about the benefits of separating frontend and backend. What I mean by that 
+        is that I used to not do this separation. Starting out, I had a web frontend in the form of Thymeleaf templates in a 
+        Spring Boot web application. I ran into a technical problem where I wanted form data to be sent to a controller in JSON 
+        format, so that I could use the @RequestBody annotation and use an object as the method parameter receiving the JSON instead 
+        of having to parse out the data field by field from a data structure. Turns out that 
+        <a href="https://stackoverflow.com/questions/22195065/how-to-send-a-json-object-using-html-form-data">
+            isn't possible with HTML</a>, so I had two options:
+    </p>
+
+    <ol>
+        <li>Use javascript to manually construct a JSON object and sent it with an AJAX call, surpressing the standard 
+            submit behavior of the form. That's not a good option in my case because I'm sending the data of a football player 
+            over the wire, and the football player data structure we have has many fields.
+        </li>
+        <li>Use the standard submit behavior of html and get the data of the fiels out at the backend. That's a bad option for 
+            the same reason, filling object fields at the backend isn't any better than manually constructing JSON at the 
+            frontend.
+        </li>
+    </ol>
+
+    <p>When faced with two awful options, it is best to take option 3, and that is what I did. Meaning that I turned my Spring 
+        Boot web app project into a Spring Boot based REST-Service (which in practice just required changing the controller to a 
+        rest controller with @RestController instead of @Controller) and made an angular project for the frontend. I migrated my 
+        template to the angular project and use the HttpClient of angular to send the player data from the form as JSON to my 
+        rest service. Which works perfectly. 
+    </p>
+
+    <p>But that is admittedly a very specific case. More in general, I like the setup with Spring Boot based REST-Service and 
+        Angular based frontend a lot because it allows me to change the backend independently of the frontend and vice versa. 
+        Especially for the frontend part this gives me the freedom to experiment with different ways to display data more easily 
+        compared to having one fat jar or one war-file containing frontend and backend. But what I like about it even more is the 
+        separation of concerns taking place on a technical level. Using that setup, you're using Spring to connect to databases, 
+        build REST-APIs and so on, which Spring is very good at. And you're using Angular to build the frontend, which Angular is 
+        very good at. So conceptually you are using the right technology in the right place. Of course that statement is oppinionated 
+        and can be debated. Some might argue that Spring Web MVC is better for developing web applications in conjunction with a 
+        Spring backend than the Angular+Spring/Spring Boot combination. And maybe for some cases they are right. I have no extensive 
+        experience or industry research to lean on, but in my experience separating backend and frontend with projects in a 
+        different framework for each allows me to mentally switch from frontend-thinking to backend-thinking more easily.
+    </p>
+
+    <p>
+        What do I mean by that? Well, roughly speaking, at the backend I think about data management whereas at the frontend I think 
+        about end user functionality. The end user functionality is accessed through the frontend, but a lot of end user 
+        functionality is really based on doing something <strong>with</strong> the data managed by the backend or doing something 
+        <strong>to</strong> the data managed by the backend. So at the backend it's all about allowing different forms of access to 
+        the data and different computations (as far as they can not be done at the frontend) based on the data. At the frontend, it's 
+        all about giving the user an easy way to access all that functionality plus all the functionality that can be implemented 
+        directly at the frontend. The two types of development just come with a different focus. And in my oppinion Angular makes 
+        it easier to think in frontend terms than Spring Web MVC. It's not necessarily about the technical capabilities of the 
+        frameworks, 
+        it's more about the way you work with them. One example: In Spring Web MVC, you need to attach things to the model and return 
+        the right 
+        view from your controller, but the model and the view are not bundled in one data structure. In Angular, model and view are 
+        bundled in components. I like the abstraction of components a lot because most of what you see on a web page made with Angular 
+        is either itself a component or is part of a component. Thinking in components on a page is, to me, just more natural than 
+        thinking in terms of models which are passed around between views.
+    </p>
+
+    <p>
+        In contrast, when I write backend code I want the type safety of Java and the maturity of Java frameworks, and I'll take the 
+        slightly lesser writing speed compared to Python or JavaScript with Node (or Ruby on Rails or whatever other more 
+        modern framework which is advertised with the "write code faster" slogan). Why? Because I don't think about code write time, 
+        I think about "getting code to work reliably" time. Which includes testing and searching for bugs. And type safety right out 
+        of the gate eliminates some bugs which are possible without type safety. That's one reason. Then there is the large amount of 
+        mature frameworks in the Java world. I like Node a lot, but Node has been in existance for about 10 years now. Java has 
+        been in existance for 24 years. Java frameworks just had way more time to mature than Node frameworks. So I think to say that 
+        with Node writing time is faster is very simplistic. It depends on the context. If there are adequate frameworks for the task 
+        at hand in Node and if type safety doesn't yield much benefits (e.g. because the data structures are very simple) then Node 
+        may well be faster. But if type safety eliminates possible errors (e.g. because of very complex data structures) and you need 
+        a large number of frameworks to do small tasks for which there are more mature frameworks in Java than in Node then those 
+        two facts probably mean that you will be able to implement the functionality you want in Java faster than with Node. So I 
+        think those generalized statements like "development with Node is faster than with Java/Spring" are not very meaningful 
+        because it always depends on the specific use case, on what specifically you want to do.
+    </p>
+
+    <p>
+        And then there's the expertise thing. I know software developers are supposed to be jacks of all trades, but I think there 
+        is great value in knowing a few technologies really well, greater value than knowing a lot of technologies a little bit.
+        And I've decided to get to know Angular and Spring/Spring Boot really well. Why? Because to me those technologies are 
+        very pleasant to work with, but also, I'm not gonna lie, because of the popularity of those technologies. It might be 
+        fun to do web development with Python and Django, but where I live there are almost no jobs for that tech stack. But there 
+        <strong>are</strong> plenty of jobs for Spring/Angular. In the same vein, I'd love to take a deep dive on Express/Node, but 
+        it's simply not worth the effort/time given the relatively few jobs there are where those technologies are relevant.
+    </p>
+
+    <p>So in summary, here's why I like the Angular/Spring combination:</p>
+
+    <ul>
+        <li>Clear separation of concerns on a technological and conceptual level</li>
+        <li>Ease of use of the technologies for their respective tasks</li>
+        <li>High demand in the job market (where I live)</li>
+    </ul>
+
+    <p>That's my piece on why I think Angular/Spring is a great combination for full stack web development. Note that this is just 
+        my oppinion and in no way to be seen as based on industry research or years of knowledge in the field. It's just my take as 
+        an advanced beginner.
+    </p>
+</article>

@@ -1,1 +1,70 @@
 /* You can add global styles to this file, and also import other style files */
+a {
+    target: _blank;
+    color: darkblue;
+    display: inline;
+}
+
+article {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.center-table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
+    border: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+
+.home {
+    background-image: url("assets/home.jpg");
+}
+
+hr {
+    border-style: none;
+    border-top-style: dotted;
+    border-top-width: 2px;
+    border-color: grey;
+    width: 30%;
+}
+
+img {
+    display: inline;
+}
+
+ul {
+    list-style-position: inside;
+}
+
+ol {
+    list-style-position: inside;
+}
+
+.poem {
+    background-color: black;
+    color: silver;
+}
+
+td {
+    border: none;
+}
+
+tr {
+    border: none;
+}
