@@ -14,6 +14,7 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 
 const appRoutes: Routes = [
+  {path: "", component: HomeComponent},
   {path: "history", component: ProjectHistoryComponent},
   {path: "home", component: HomeComponent},
   {path: "diary", component: DiaryComponent},
