@@ -1,8 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 a {
     target: _blank;
     color: darkblue;
     display: inline;
+}
+
+.app-container {
+    margin: 0 5%;
 }
 
 article {
@@ -46,6 +54,12 @@ hr {
 
 img {
     display: inline;
+    margin: 0 1em 1em 0;
+}
+
+.navigation {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 1em;
 }
 
 ul {
